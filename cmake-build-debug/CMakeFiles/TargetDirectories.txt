@@ -1,0 +1,3 @@
+C:/programming/schule/compiler-programmingLang/cmake-build-debug/CMakeFiles/compiler_programmingLang.dir
+C:/programming/schule/compiler-programmingLang/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/programming/schule/compiler-programmingLang/cmake-build-debug/CMakeFiles/rebuild_cache.dir
