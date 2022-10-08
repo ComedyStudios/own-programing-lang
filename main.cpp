@@ -1,6 +1,9 @@
 #include <iostream>
+#include "Scanner.h"
 
+string filePath = ".\\test.meth";
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Scanner *scanner = new Scanner(filePath);
+    scanner->scan();
+    delete scanner;
 }
