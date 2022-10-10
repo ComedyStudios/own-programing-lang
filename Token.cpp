@@ -6,8 +6,7 @@
 
 #include <utility>
 
-Token::Token(string s, TokenTypes t, CommandTypes c) {
-    commandType = c;
+Token::Token(string s, TokenTypes t) {
     token = std::move(s);
     type = t;
 }

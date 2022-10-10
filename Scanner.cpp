@@ -14,7 +14,7 @@ list<char> braces = {'(',')','{','}'};
 list<char> pointOperators = {'*','/'};
 list<char> dashOperators = {'-','+'};
 list<char> specialChars = {',','='};
-list<list<char>> categories = {letters, numberChars,latexOperators,braces,pointOperators,dashOperators, specialChars};
+list<list<char>> categories = {letters, numberChars,latexOperators,braces,pointOperators,dashOperators,specialChars};
 list<string> commands = {"calc","Term","Func","Draw","cook"};
 list<string> latexCommands = {"frac",};
 list<Token> tokens;
@@ -51,7 +51,7 @@ string Scanner::scan() {
             }
         }
         for(Token t : tokens){
-            cout<< "Token:"+ t.token + " " + "Type:"+to_string(t.type) + " isCommand:" + to_string(t.commandType)<< endl;
+            cout<< "Token:"+ t.token + " " + "Type:"+to_string(t.type)<< endl;
         }
         cout << "scanning finished" << endl;
     }
@@ -66,26 +66,26 @@ void Scanner::addToken(const TokenTypes &lastCharacterType, string &str) {
     if(!temp.empty()){
         for(const string& s: commands){
             if(temp == s){
-                tokens.push_back(*new Token(temp,lastCharacterType,command));
+                tokens.push_back(*new Token(temp,command));
                 return;
             }
         }
         for(const string& s: latexCommands){
             if(temp == s){
-                tokens.push_back(*new Token(temp, lastCharacterType, latexCommand));
+                tokens.push_back(*new Token(temp, latexCommand));
                 return;
             }
         }
         if(lastCharacterType==number){
-            tokens.push_back(*new Token(temp,lastCharacterType,notACommand));
-        } else tokens.push_back(*new Token(temp,lastCharacterType,name));
+            tokens.push_back(*new Token(temp,number));
+        } else tokens.push_back(*new Token(temp,name));
     }
 }
 
 TokenTypes Scanner::getCharType() {
     TokenTypes thisCharacterType;
     for(int j = 0; j < categories.size(); j++){
-        for(char c: *next(categories.begin(),j)){
+        for(char c: *next(categories.begin(), j)){
             if(currentChar == c){
                 thisCharacterType = static_cast<TokenTypes>(j+1);
             }

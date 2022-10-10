@@ -8,19 +8,12 @@
 #include "Scanner.h"
 using namespace std;
 
-enum CommandTypes{
-    notACommand,
-    command,
-    latexCommand,
-    name,
-};
 
 class Token {
     public:
         string token;
         TokenTypes type;
-        CommandTypes commandType;
-        Token(string s, TokenTypes t, CommandTypes = notACommand);
+        Token(string s, TokenTypes t);
 };
 
 

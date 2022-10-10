@@ -16,6 +16,9 @@ enum TokenTypes{
     pointOperator,
     dashOperator,
     specialCharacter,
+    command,
+    latexCommand,
+    name,
 };
 
 
