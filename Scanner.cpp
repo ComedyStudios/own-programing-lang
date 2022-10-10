@@ -1,9 +1,8 @@
-#include <list>
-#include "iostream";
-#include "Scanner.h";
-#include "list";
+#include "list"
+#include "iostream"
+#include "Scanner.h"
 #include "Token.h"
-
+#include "Categorie.h"
 using namespace std;
 
 ifstream myFile;
@@ -14,31 +13,40 @@ list<char> braces = {'(',')','{','}'};
 list<char> pointOperators = {'*','/'};
 list<char> dashOperators = {'-','+'};
 list<char> specialChars = {',','='};
-list<list<char>> categories = {letters, numberChars,latexOperators,braces,pointOperators,dashOperators,specialChars};
+list<Category> categories = {
+        Category(' ', space),
+        Category(letters, letter),
+        Category(numberChars, number),
+        Category(latexOperators, latexCommand),
+        Category(braces, brace),
+        Category(pointOperators,pointOperator),
+        Category(dashOperators, dashOperator),
+        Category(specialChars, specialCharacter)
+};
 list<string> commands = {"calc","Term","Func","Draw","cook"};
 list<string> latexCommands = {"frac",};
 list<Token> tokens;
 string currentLine;
 char currentChar;
 
-Scanner::Scanner(string path) {
+Scanner::Scanner(const string& path) {
     myFile.open(path);
 }
 
 
-string Scanner::scan() {
+void Scanner::scan() {
     if(myFile.is_open()){
         while (getline(myFile, currentLine)){
             currentLine += " ";
-            TokenTypes lastCharacterType = null;
-            string str = "";
-            for(int i = 0; i< currentLine.size();i++){
-                currentChar = currentLine.at(i);
+            TokenTypes lastCharacterType = space;
+            string str;
+            for(char i : currentLine){
+                currentChar = i;
                 TokenTypes thisCharacterType = getCharType();
                 if(currentChar == ' '){
                     addToken(lastCharacterType, str);
                 }
-                else if(thisCharacterType == specialCharacter|| thisCharacterType == brace|| thisCharacterType == latexChar ||thisCharacterType ==pointOperator||thisCharacterType == dashOperator)
+                else if(thisCharacterType != letter && thisCharacterType != number)
                 {
                     addToken(lastCharacterType, str);
                     string s(1,currentChar);
@@ -50,9 +58,9 @@ string Scanner::scan() {
                 lastCharacterType = thisCharacterType;
             }
         }
-        for(Token t : tokens){
-            cout<< "Token:"+ t.token + " " + "Type:"+to_string(t.type)<< endl;
-        }
+        for (const Token &t: tokens)
+            cout << "Token:" + t.token + " " + "Type:" + to_string(t.type) << endl;
+
         cout << "scanning finished" << endl;
     }
     else{
@@ -83,18 +91,18 @@ void Scanner::addToken(const TokenTypes &lastCharacterType, string &str) {
 }
 
 TokenTypes Scanner::getCharType() {
-    TokenTypes thisCharacterType;
     for(int j = 0; j < categories.size(); j++){
-        for(char c: *next(categories.begin(), j)){
+        Category category = *next(categories.begin(),j);
+        if(currentChar == category.c){
+            return category.typeOfChars;
+        }
+        for(char c: category.chars){
             if(currentChar == c){
-                thisCharacterType = static_cast<TokenTypes>(j+1);
-            }
-            if(currentChar == ' '){
-                thisCharacterType = null;
+                return category.typeOfChars;
             }
         }
     }
-    return thisCharacterType;
+    throw invalid_argument("unidentified token:'" + string(1,currentChar));
 }
 
 

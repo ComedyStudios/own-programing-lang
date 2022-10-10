@@ -144,12 +144,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Categories.cpp",
+			"path" : "Categorie.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Categories.h",
+			"path" : "Categorie.h",
 			"sourceGroupIndex" : 1
 		}
 	],

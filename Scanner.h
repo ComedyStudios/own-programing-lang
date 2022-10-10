@@ -8,7 +8,7 @@
 #include "fstream"
 using namespace std;
 enum TokenTypes{
-    null,
+    space,
     letter,
     number,
     latexChar,
@@ -24,8 +24,8 @@ enum TokenTypes{
 
 class Scanner {
     public:
-        Scanner(string path);
-        static string scan();
+        Scanner(const string& path);
+        static void scan();
         static TokenTypes getCharType();
 
     static void addToken(const TokenTypes &lastCharacterType, string &str);
