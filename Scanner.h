@@ -7,12 +7,28 @@
 #include "iostream"
 #include "fstream"
 using namespace std;
+enum TokenTypes{
+    null,
+    letter,
+    number,
+    latexChar,
+    brace,
+    pointOperator,
+    dashOperator,
+    specialCharacter,
+};
+
 
 class Scanner {
     public:
         Scanner(string path);
         static string scan();
+        static TokenTypes getCharType();
+
+    static void addToken(const TokenTypes &lastCharacterType, string &str);
 };
+
+
 
 
 #endif //COMPILER_PROGRAMMINGLANG_SCANNER_H

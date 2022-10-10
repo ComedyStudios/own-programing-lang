@@ -1,3 +1,2 @@
-this statement is false
 Term t = 20*(30+9)
 calc(t)

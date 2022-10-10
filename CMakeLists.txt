@@ -3,4 +3,4 @@ project(compiler_programmingLang)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(compiler_programmingLang main.cpp Scanner.cpp Scanner.h)
+add_executable(compiler_programmingLang main.cpp Scanner.cpp Scanner.h Token.cpp Token.h)
