@@ -3,27 +3,32 @@
 #include "Scanner.h"
 #include "Token.h"
 #include "Categorie.h"
+#include "Command.h"
 using namespace std;
 
 ifstream myFile;
 list<char> letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','_'};
 list<char> numberChars = {'0','1','2','3','4','5','6','7','8','9','.'};
-list<char> latexOperators = {'\\'};
-list<char> braces = {'(',')','{','}'};
 list<char> pointOperators = {'*','/'};
 list<char> dashOperators = {'-','+'};
-list<char> specialChars = {',','='};
 list<Category> categories = {
         Category(' ', space),
         Category(letters, letter),
         Category(numberChars, number),
-        Category(latexOperators, latexCommand),
-        Category(braces, brace),
+        Category('\\', latexCommand),
+        Category('{', braceOpenCurly),
+        Category('}', braceCloseCurly),
+        Category('(',braceOpenNormal),
+        Category(')',braceCloseNormal),
         Category(pointOperators,pointOperator),
         Category(dashOperators, dashOperator),
-        Category(specialChars, specialCharacter)
+        Category('=', equalsOperator),
 };
-list<string> commands = {"calc","Term","Func","Draw","cook"};
+list<Command> commands = {
+        Command("cook", cook),
+        Command("Term", declaration),
+        Command("calc", calc),
+};
 list<string> latexCommands = {"frac",};
 list<Token> tokens;
 string currentLine;
@@ -72,9 +77,9 @@ void Scanner::addToken(const TokenTypes &lastCharacterType, string &str) {
     string temp = str;
     str = "";
     if(!temp.empty()){
-        for(const string& s: commands){
-            if(temp == s){
-                tokens.push_back(*new Token(temp,command));
+        for(const Command& c: commands){
+            if(temp == c.name){
+                tokens.push_back(*new Token(temp,c.type));
                 return;
             }
         }

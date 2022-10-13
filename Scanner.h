@@ -11,14 +11,19 @@ enum TokenTypes{
     space,
     letter,
     number,
-    latexChar,
-    brace,
+    braceOpenNormal,
+    braceCloseNormal,
+    braceOpenCurly,
+    braceCloseCurly,
     pointOperator,
     dashOperator,
-    specialCharacter,
-    command,
+    equalsOperator,
     latexCommand,
+    calc,
+    declaration,
+    cook,
     name,
+
 };
 
 

@@ -11,7 +11,7 @@ using namespace std;
 
 class Category {
     public:
-        char c;
+        char c{};
         list<char> chars;
         TokenTypes typeOfChars;
         Category(char c, TokenTypes type);

@@ -4,13 +4,15 @@
 
 #include "Categorie.h"
 
+#include <utility>
+
 Category::Category(char c, TokenTypes type) {
     this->c = c;
     typeOfChars = type;
 }
 
 Category::Category(list<char> c, TokenTypes type) {
-    chars = c;
+    chars = std::move(c);
     typeOfChars = type;
 }
 
