@@ -4,36 +4,20 @@
 
 #ifndef COMPILER_PROGRAMMINGLANG_SCANNER_H
 #define COMPILER_PROGRAMMINGLANG_SCANNER_H
+#include "list"
 #include "iostream"
 #include "fstream"
+#include "TokenTypes.h"
+#include "Token.h"
+
 using namespace std;
-enum TokenTypes{
-    space,
-    letter,
-    number,
-    braceOpenNormal,
-    braceCloseNormal,
-    braceOpenCurly,
-    braceCloseCurly,
-    pointOperator,
-    dashOperator,
-    equalsOperator,
-    latexCommand,
-    calc,
-    declaration,
-    cook,
-    name,
-
-};
-
 
 class Scanner {
     public:
-        Scanner(const string& path);
-        static void scan();
-        static TokenTypes getCharType();
-
-    static void addToken(const TokenTypes &lastCharacterType, string &str);
+        explicit Scanner(const string& path);
+        list<Token> scan();
+        TokenTypes getCharType();
+        void addToken(const TokenTypes &lastCharacterType, string &str);
 };
 
 

@@ -1,0 +1,14 @@
+//
+// Created by muluc on 13.10.2022.
+//
+
+#ifndef COMPILER_PROGRAMMINGLANG_PARSER_H
+#define COMPILER_PROGRAMMINGLANG_PARSER_H
+
+
+class Parser {
+
+};
+
+
+#endif //COMPILER_PROGRAMMINGLANG_PARSER_H

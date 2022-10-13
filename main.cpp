@@ -1,9 +1,11 @@
 #include <iostream>
+#include <list>
 #include "Scanner.h"
 
 string filePath = "test.meth";
 int main() {
-    Scanner *scanner = new Scanner(filePath);
-    scanner->scan();
+    auto scanner = new Scanner(filePath);
+    //scanner->scan();
+    list<Token> tokens = scanner->scan();
     delete scanner;
 }

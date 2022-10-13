@@ -1,9 +1,9 @@
 #include "list"
 #include "iostream"
 #include "Scanner.h"
-#include "Token.h"
 #include "Categorie.h"
 #include "Command.h"
+#include "Token.h"
 using namespace std;
 
 ifstream myFile;
@@ -39,7 +39,7 @@ Scanner::Scanner(const string& path) {
 }
 
 
-void Scanner::scan() {
+ list<Token> Scanner::scan() {
     if(myFile.is_open()){
         while (getline(myFile, currentLine)){
             currentLine += " ";
@@ -55,7 +55,7 @@ void Scanner::scan() {
                 {
                     addToken(lastCharacterType, str);
                     string s(1,currentChar);
-                    tokens.push_back(*new Token(s, thisCharacterType));
+                    tokens.emplace_back(s, thisCharacterType);
                 }
                 else{
                     str += currentChar;
@@ -71,21 +71,22 @@ void Scanner::scan() {
     else{
         cout << "unable To open file"<< endl;
     }
+    return tokens;
 }
 
 void Scanner::addToken(const TokenTypes &lastCharacterType, string &str) {
     string temp = str;
     str = "";
     if(!temp.empty()){
-        for(const Command& c: commands){
+        for(const Command c: commands){
             if(temp == c.name){
-                tokens.push_back(*new Token(temp,c.type));
+                tokens.emplace_back(temp,c.type);
                 return;
             }
         }
         for(const string& s: latexCommands){
             if(temp == s){
-                tokens.push_back(*new Token(temp, latexCommand));
+                tokens.emplace_back(temp, latexCommand);
                 return;
             }
         }

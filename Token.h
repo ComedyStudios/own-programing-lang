@@ -5,7 +5,8 @@
 #ifndef COMPILER_PROGRAMMINGLANG_TOKEN_H
 #define COMPILER_PROGRAMMINGLANG_TOKEN_H
 #include "iostream"
-#include "Scanner.h"
+#include "TokenTypes.h"
+
 using namespace std;
 
 

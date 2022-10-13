@@ -3,7 +3,9 @@
 //
 
 #include "Command.h"
+
+#include <utility>
 Command::Command(string n, TokenTypes t) {
-    name = n;
+    name = std::move(n);
     type = t;
 }

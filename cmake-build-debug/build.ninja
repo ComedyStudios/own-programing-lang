@@ -79,6 +79,12 @@ build CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj: CXX_COMPILER__com
   OBJECT_DIR = CMakeFiles\compiler_programmingLang.dir
   OBJECT_FILE_DIR = CMakeFiles\compiler_programmingLang.dir
 
+build CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj: CXX_COMPILER__compiler_programmingLang_Debug C$:/programming/schule/compiler-programmingLang/Parser.cpp || cmake_object_order_depends_target_compiler_programmingLang
+  DEP_FILE = CMakeFiles\compiler_programmingLang.dir\Parser.cpp.obj.d
+  FLAGS = -g -std=gnu++20
+  OBJECT_DIR = CMakeFiles\compiler_programmingLang.dir
+  OBJECT_FILE_DIR = CMakeFiles\compiler_programmingLang.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target compiler_programmingLang
@@ -87,7 +93,7 @@ build CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj: CXX_COMPILER__com
 #############################################
 # Link the executable compiler_programmingLang.exe
 
-build compiler_programmingLang.exe: CXX_EXECUTABLE_LINKER__compiler_programmingLang_Debug CMakeFiles/compiler_programmingLang.dir/main.cpp.obj CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj
+build compiler_programmingLang.exe: CXX_EXECUTABLE_LINKER__compiler_programmingLang_Debug CMakeFiles/compiler_programmingLang.dir/main.cpp.obj CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\compiler_programmingLang.dir
