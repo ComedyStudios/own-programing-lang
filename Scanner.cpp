@@ -16,10 +16,10 @@ list<Category> categories = {
         Category(letters, letter),
         Category(numberChars, number),
         Category('\\', latexCommand),
-        Category('{', braceOpenCurly),
-        Category('}', braceCloseCurly),
-        Category('(',braceOpenNormal),
-        Category(')',braceCloseNormal),
+        Category('{', BraceOpenCurly),
+        Category('}', BraceCloseCurly),
+        Category('(', BraceOpenNormal),
+        Category(')', BraceCloseNormal),
         Category(pointOperators,pointOperator),
         Category(dashOperators, dashOperator),
         Category('=', equalsOperator),
@@ -27,6 +27,8 @@ list<Category> categories = {
 list<Command> commands = {
         Command("cook", cook),
         Command("Term", declaration),
+        Command("int", declaration),
+        Command("float", declaration),
         Command("calc", calc),
 };
 list<string> latexCommands = {"frac",};

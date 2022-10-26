@@ -1,4 +1,4 @@
-# Install script for directory: C:/programming/schule/compiler-programmingLang
+# Install script for directory: D:/programing/programing-lang
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/muluc/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "D:/installs/jetbrains/apps/CLion/ch-0/222.4345.21/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/programming/schule/compiler-programmingLang/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/programing/programing-lang/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

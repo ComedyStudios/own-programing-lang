@@ -6,4 +6,7 @@
       <file path="$PROJECT_DIR$/src" />
     </sourceRoots>
   </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>

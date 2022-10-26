@@ -11,10 +11,16 @@
 using namespace std;
 
 class Parser {
-public:
-    list<Token> tokens;
-    explicit Parser(list<Token> tokenList);
-    void Parse();
+    public:
+        list<Token> tokens;
+        _List_iterator<Token> currentToken;
+        explicit Parser(list<Token> tokenList);
+        void Parse();
+    private:
+        void Error(string s);
+        void ManageDeclaration(_List_iterator<Token> t);
+
+
 };
 
 
