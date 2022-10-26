@@ -6,8 +6,15 @@
 #define COMPILER_PROGRAMMINGLANG_PARSER_H
 
 
-class Parser {
+#include "Token.h"
+#include "list"
+using namespace std;
 
+class Parser {
+public:
+    list<Token> tokens;
+    explicit Parser(list<Token> tokenList);
+    void Parse();
 };
 
 

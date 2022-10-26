@@ -15,6 +15,7 @@ class Token {
         string token;
         TokenTypes type;
         Token(string s, TokenTypes t);
+        Token();
 };
 
 

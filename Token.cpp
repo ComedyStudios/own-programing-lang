@@ -10,3 +10,8 @@ Token::Token(string s, TokenTypes t) {
     token = std::move(s);
     type = t;
 }
+
+Token::Token() {
+    token = "";
+    type = space;
+}

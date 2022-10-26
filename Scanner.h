@@ -17,7 +17,7 @@ class Scanner {
         explicit Scanner(const string& path);
         list<Token> scan();
         TokenTypes getCharType();
-        void addToken(const TokenTypes &lastCharacterType, string &str);
+        static void addToken(const TokenTypes &lastCharacterType, string &str);
 };
 
 
