@@ -22,11 +22,9 @@ class Parser {
     private:
         static void Error(const string& s);
         void ManageDeclaration();
-        TokenNode GetOperator();
         TokenNode GetLatexExpressionNodes();
         TokenNode GetVariableNodes();
-
-    TokenNode GetOperator(_List_iterator<Token> t);
+        TokenNode GetOperator(_List_iterator<Token> t);
 };
 
 

@@ -53,14 +53,15 @@ void Parser::ManageDeclaration() {
 
     advance(currentToken,1);
     if(currentToken->type == equalsOperator){
-        advance(currentToken,1);
-        if(declaredType == "Term")
-        {
+        if(declaredType == "Term"){
+            advance(currentToken,1);
             //connect the name of the variable with the value of the variable
             nameNode.nodes.emplace_back(GetOperator(currentToken));
             typeNode.nodes.emplace_back(nameNode);
         }
+        else Error("invalid or unimplemented declaration");
     }
+    else Error(" '=' expected ");
     variables.emplace_back(typeNode);
     cout << "TODO: (not completely implemented) manage declaration";
 }
