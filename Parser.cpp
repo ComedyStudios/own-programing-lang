@@ -57,32 +57,30 @@ void Parser::ManageDeclaration() {
         if(declaredType == "Term")
         {
             //connect the name of the variable with the value of the variable
-            nameNode.nodes.emplace_back(GetOperator());
+            nameNode.nodes.emplace_back(GetOperator(currentToken));
             typeNode.nodes.emplace_back(nameNode);
         }
     }
     variables.emplace_back(typeNode);
-
-
     cout << "TODO: (not completely implemented) manage declaration";
 }
 
-TokenNode Parser::GetOperator() {
+TokenNode Parser::GetOperator(_List_iterator<Token> t) {
     //check if operator is a number
-    if(currentToken->type == number){
-        return *new TokenNode(currentToken);
+    if(t->type == number){
+        return *new TokenNode(t);
     }
 
     //check if the Operator is a latex declaration
-    else if(currentToken->type == latexCommandOperator){
-        advance(currentToken,1);
-        if(currentToken->type == latexCommand){
-            advance(currentToken,1);
+    else if(t->type == latexCommandOperator){
+        advance(t,1);
+        if(t->type == latexCommand){
+            advance(t,1);
             return GetLatexExpressionNodes();
         }
     }
     // check if operator is a variable
-    else if (currentToken->type == name){
+    else if (t->type == name){
         return GetVariableNodes();
     }
     else Error("GetOperator: unexpected token");
