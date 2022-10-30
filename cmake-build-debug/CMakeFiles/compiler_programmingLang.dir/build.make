@@ -55,7 +55,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = D:\programing\programing-lang
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\programing\programing-lang\cmake-build-release
+CMAKE_BINARY_DIR = D:\programing\programing-lang\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/compiler_programmingLang.dir/depend.make
@@ -71,7 +71,7 @@ include CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/main.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/compiler_programmingLang.dir/main.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compiler_programmingLang.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/compiler_programmingLang.dir/main.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/main.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\main.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\main.cpp.obj -c D:\programing\programing-lang\main.cpp
 
 CMakeFiles/compiler_programmingLang.dir/main.cpp.i: cmake_force
@@ -85,7 +85,7 @@ CMakeFiles/compiler_programmingLang.dir/main.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj: ../Scanner.cpp
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\Scanner.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\Scanner.cpp.obj -c D:\programing\programing-lang\Scanner.cpp
 
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.i: cmake_force
@@ -99,7 +99,7 @@ CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj: ../Token.cpp
 CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/Token.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\Token.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\Token.cpp.obj -c D:\programing\programing-lang\Token.cpp
 
 CMakeFiles/compiler_programmingLang.dir/Token.cpp.i: cmake_force
@@ -113,7 +113,7 @@ CMakeFiles/compiler_programmingLang.dir/Token.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj: ../Categorie.cpp
 CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\Categorie.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\Categorie.cpp.obj -c D:\programing\programing-lang\Categorie.cpp
 
 CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.i: cmake_force
@@ -127,7 +127,7 @@ CMakeFiles/compiler_programmingLang.dir/Categorie.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj: ../Command.cpp
 CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/Command.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\Command.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\Command.cpp.obj -c D:\programing\programing-lang\Command.cpp
 
 CMakeFiles/compiler_programmingLang.dir/Command.cpp.i: cmake_force
@@ -141,7 +141,7 @@ CMakeFiles/compiler_programmingLang.dir/Command.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj: ../Parser.cpp
 CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\Parser.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\Parser.cpp.obj -c D:\programing\programing-lang\Parser.cpp
 
 CMakeFiles/compiler_programmingLang.dir/Parser.cpp.i: cmake_force
@@ -155,7 +155,7 @@ CMakeFiles/compiler_programmingLang.dir/Parser.cpp.s: cmake_force
 CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj: CMakeFiles/compiler_programmingLang.dir/flags.make
 CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj: ../TokenNode.cpp
 CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj: CMakeFiles/compiler_programmingLang.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj"
 	D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj -MF CMakeFiles\compiler_programmingLang.dir\TokenNode.cpp.obj.d -o CMakeFiles\compiler_programmingLang.dir\TokenNode.cpp.obj -c D:\programing\programing-lang\TokenNode.cpp
 
 CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.i: cmake_force
@@ -190,7 +190,7 @@ compiler_programmingLang.exe: CMakeFiles/compiler_programmingLang.dir/build.make
 compiler_programmingLang.exe: CMakeFiles/compiler_programmingLang.dir/linklibs.rsp
 compiler_programmingLang.exe: CMakeFiles/compiler_programmingLang.dir/objects1.rsp
 compiler_programmingLang.exe: CMakeFiles/compiler_programmingLang.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\programing\programing-lang\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable compiler_programmingLang.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\programing\programing-lang\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable compiler_programmingLang.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\compiler_programmingLang.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -202,6 +202,6 @@ CMakeFiles/compiler_programmingLang.dir/clean:
 .PHONY : CMakeFiles/compiler_programmingLang.dir/clean
 
 CMakeFiles/compiler_programmingLang.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\programing\programing-lang D:\programing\programing-lang D:\programing\programing-lang\cmake-build-release D:\programing\programing-lang\cmake-build-release D:\programing\programing-lang\cmake-build-release\CMakeFiles\compiler_programmingLang.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\programing\programing-lang D:\programing\programing-lang D:\programing\programing-lang\cmake-build-debug D:\programing\programing-lang\cmake-build-debug D:\programing\programing-lang\cmake-build-debug\CMakeFiles\compiler_programmingLang.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/compiler_programmingLang.dir/depend
 

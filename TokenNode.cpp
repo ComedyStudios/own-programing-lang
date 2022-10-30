@@ -5,9 +5,6 @@
 #include "TokenNode.h"
 
 #include <utility>
-TokenNode leftNode;
-TokenNode rightNode;
-
 
 TokenNode::TokenNode() {
     type = space;
@@ -19,16 +16,10 @@ TokenNode::TokenNode(string n, TokenTypes t) {
     name = std::move(n);
 }
 
-TokenNode TokenNode::getLeftNode() {
-    return leftNode;
+TokenNode::TokenNode(_List_iterator<Token> token) {
+    type = token->type;
+    name = token->token;
 }
-TokenNode TokenNode::getRightNode() {
-    return rightNode;
-}
-void TokenNode::setLeftNode(std::string n, TokenTypes t) {
-    leftNode = TokenNode(std::move(n),t);
-}
-void TokenNode::setRightNode(std::string n, TokenTypes t) {
-    rightNode = TokenNode(std::move(n),t);
-}
+
+
 

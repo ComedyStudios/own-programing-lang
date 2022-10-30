@@ -248,6 +248,30 @@ Token.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\compiler_programmingLang.dir\build.make CMakeFiles/compiler_programmingLang.dir/Token.cpp.s
 .PHONY : Token.cpp.s
 
+TokenNode.obj: TokenNode.cpp.obj
+.PHONY : TokenNode.obj
+
+# target to build an object file
+TokenNode.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compiler_programmingLang.dir\build.make CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.obj
+.PHONY : TokenNode.cpp.obj
+
+TokenNode.i: TokenNode.cpp.i
+.PHONY : TokenNode.i
+
+# target to preprocess a source file
+TokenNode.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compiler_programmingLang.dir\build.make CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.i
+.PHONY : TokenNode.cpp.i
+
+TokenNode.s: TokenNode.cpp.s
+.PHONY : TokenNode.s
+
+# target to generate assembly for a file
+TokenNode.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\compiler_programmingLang.dir\build.make CMakeFiles/compiler_programmingLang.dir/TokenNode.cpp.s
+.PHONY : TokenNode.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -296,6 +320,9 @@ help:
 	@echo ... Token.obj
 	@echo ... Token.i
 	@echo ... Token.s
+	@echo ... TokenNode.obj
+	@echo ... TokenNode.i
+	@echo ... TokenNode.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

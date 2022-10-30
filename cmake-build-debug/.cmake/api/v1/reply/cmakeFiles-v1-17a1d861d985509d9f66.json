@@ -21,7 +21,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeSystem.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -270,7 +270,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -509,7 +509,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -598,7 +598,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeRCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -677,7 +677,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -776,7 +776,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-release/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -787,7 +787,7 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "D:/programing/programing-lang/cmake-build-release",
+		"build" : "D:/programing/programing-lang/cmake-build-debug",
 		"source" : "D:/programing/programing-lang"
 	},
 	"version" : 

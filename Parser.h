@@ -8,21 +8,23 @@
 
 #include "Token.h"
 #include "list"
+#include "TokenNode.h"
+
 using namespace std;
 
 class Parser {
     public:
         list<Token> tokens;
         _List_iterator<Token> currentToken;
+        list<TokenNode> variables;
         explicit Parser(list<Token> tokenList);
         void Parse();
     private:
-        void Error(string s);
-        void ManageDeclaration(_List_iterator<Token> t);
-        bool isOperator(_List_iterator<Token> t);
-
-
-    void CheckLatexCommandValidity(_List_iterator<Token> iterator);
+        static void Error(const string& s);
+        void ManageDeclaration();
+        TokenNode GetOperator();
+        TokenNode GetLatexExpressionNodes();
+        TokenNode GetVariableNodes();
 };
 
 

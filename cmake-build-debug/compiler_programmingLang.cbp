@@ -112,6 +112,12 @@
 		<Unit filename="D:/programing/programing-lang/Token.h">
 			<Option target="compiler_programmingLang"/>
 		</Unit>
+		<Unit filename="D:/programing/programing-lang/TokenNode.cpp">
+			<Option target="compiler_programmingLang"/>
+		</Unit>
+		<Unit filename="D:/programing/programing-lang/TokenNode.h">
+			<Option target="compiler_programmingLang"/>
+		</Unit>
 		<Unit filename="D:/programing/programing-lang/TokenTypes.h">
 			<Option target="compiler_programmingLang"/>
 		</Unit>

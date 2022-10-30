@@ -4,20 +4,22 @@
 
 #ifndef COMPILER_PROGRAMMINGLANG_TOKENNODE_H
 #define COMPILER_PROGRAMMINGLANG_TOKENNODE_H
+
+#include <list>
 #include "iostream"
 #include "TokenTypes.h"
+#include "Token.h"
+
 using namespace std;
 
 class TokenNode {
 public:
     string name;
     TokenTypes type;
+    list<TokenNode> nodes;
     TokenNode();
+    TokenNode(_List_iterator<Token> token);
     TokenNode(string n, TokenTypes t);
-    static TokenNode getRightNode();
-    static TokenNode getLeftNode();
-    static void setRightNode(string n, TokenTypes t);
-    static void setLeftNode(string n, TokenTypes t);
 };
 
 

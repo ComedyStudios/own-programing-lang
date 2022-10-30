@@ -27,8 +27,6 @@ list<Category> categories = {
 list<Command> commands = {
         Command("cook", cook),
         Command("Term", declaration),
-        Command("int", declaration),
-        Command("float", declaration),
         Command("calc", calc),
 };
 list<string> latexCommands = {"frac",};

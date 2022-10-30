@@ -4,10 +4,12 @@
 
 #include "Parser.h"
 
+#include <utility>
+
 using namespace std;
 
 Parser::Parser(list<Token> tokenList) {
-    tokens = tokenList;
+    tokens = std::move(tokenList);
 }
 
 void Parser::Parse() {
@@ -25,69 +27,73 @@ void Parser::Parse() {
     advance(currentToken, 2);
     switch (currentToken->type) {
         case declaration:
-            ManageDeclaration(currentToken);
+            ManageDeclaration();
             break;
         default:
             Error("unidentified token");
             break;
     }
 }
-void Parser::Error(std::string s) {
+void Parser::Error(const string& s) {
     cout << "ERROR:"<< s <<endl;
     abort();
 }
 
-void Parser::ManageDeclaration(_List_iterator<Token> t) {
-    string token = t->token;
+void Parser::ManageDeclaration() {
+    string declaredType = currentToken->token;
+    TokenNode nameNode;
+    //connect the type and name nodes
+    TokenNode typeNode = *new TokenNode(currentToken->token, declaration);
     advance(currentToken, 1);
-    if(currentToken->type != name){
-        Error("Nach einer Deklaration muss immer ein name stehen");
-    }
-    advance(currentToken,1);
 
+    if(currentToken->type == name){
+        nameNode = *new TokenNode(currentToken->token, name);
+
+    } else Error("Nach einer Deklaration muss immer ein name stehen");
+
+    advance(currentToken,1);
     if(currentToken->type == equalsOperator){
         advance(currentToken,1);
-        //TODO: save the value to memory
-        if(token == "int")
+        if(declaredType == "Term")
         {
-            if(currentToken->type != number){
-                Error("invalid assertion number is not valid maybe use Term instead");
-            }
-            else if(currentToken->token.find('.')){
-                Error("invalid assertion use float instead");
-            }
+            //connect the name of the variable with the value of the variable
+            nameNode.nodes.emplace_back(GetOperator());
+            typeNode.nodes.emplace_back(nameNode);
         }
     }
-    else{
-        //TODO: save the value to memory
-    }
+    variables.emplace_back(typeNode);
 
-    cout << "TODO: manage declaration";
+
+    cout << "TODO: (not completely implemented) manage declaration";
 }
 
-bool Parser::isOperator(_List_iterator<Token> t) {
-
-    if(t->type == number){
-        return true;
+TokenNode Parser::GetOperator() {
+    //check if operator is a number
+    if(currentToken->type == number){
+        return *new TokenNode(currentToken);
     }
+
     //check if the Operator is a latex declaration
-    else if(t->type == latexCommandOperator){
-        advance(t,1);
-        if(t->type == latexCommand){
-            CheckLatexCommandValidity(t);
-            return true;
-        }
-        else{
-            Error("Latex declaration expected");
-            return false;
+    else if(currentToken->type == latexCommandOperator){
+        advance(currentToken,1);
+        if(currentToken->type == latexCommand){
+            advance(currentToken,1);
+            return GetLatexExpressionNodes();
         }
     }
-    //TODO : check if the operator is saved as a variable
-    else return false;
+    // check if operator is a variable
+    else if (currentToken->type == name){
+        return GetVariableNodes();
+    }
+    else Error("GetOperator: unexpected token");
 }
 
-void Parser::CheckLatexCommandValidity(_List_iterator<Token> t) {
-    Error("not yet implemented");
+TokenNode Parser::GetLatexExpressionNodes() {
+    Error("not yet implemented: GetLatexExpressionNodes");
+}
+
+TokenNode Parser::GetVariableNodes() {
+    Error("not yet implemented:GetVariableNodes" );
 }
 
 
