@@ -19,8 +19,10 @@ class Parser {
     private:
         void Error(string s);
         void ManageDeclaration(_List_iterator<Token> t);
+        bool isOperator(_List_iterator<Token> t);
 
 
+    void CheckLatexCommandValidity(_List_iterator<Token> iterator);
 };
 
 

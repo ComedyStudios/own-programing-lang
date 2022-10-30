@@ -65,4 +65,29 @@ void Parser::ManageDeclaration(_List_iterator<Token> t) {
     cout << "TODO: manage declaration";
 }
 
+bool Parser::isOperator(_List_iterator<Token> t) {
+
+    if(t->type == number){
+        return true;
+    }
+    //check if the Operator is a latex declaration
+    else if(t->type == latexCommandOperator){
+        advance(t,1);
+        if(t->type == latexCommand){
+            CheckLatexCommandValidity(t);
+            return true;
+        }
+        else{
+            Error("Latex declaration expected");
+            return false;
+        }
+    }
+    //TODO : check if the operator is saved as a variable
+    else return false;
+}
+
+void Parser::CheckLatexCommandValidity(_List_iterator<Token> t) {
+    Error("not yet implemented");
+}
+
 
