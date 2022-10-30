@@ -15,7 +15,7 @@ list<Category> categories = {
         Category(' ', space),
         Category(letters, letter),
         Category(numberChars, number),
-        Category('\\', latexCommand),
+        Category('\\', latexCommandOperator),
         Category('{', BraceOpenCurly),
         Category('}', BraceCloseCurly),
         Category('(', BraceOpenNormal),

@@ -17,6 +17,7 @@ enum TokenTypes{
     dashOperator,
     equalsOperator,
     latexCommand,
+    latexCommandOperator,
     calc,
     declaration,
     cook,
