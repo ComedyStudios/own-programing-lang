@@ -1,3 +1,4 @@
 cook{
     Term i = 10
+    Term j = i
 }

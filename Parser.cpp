@@ -82,7 +82,7 @@ TokenNode Parser::GetOperator(_List_iterator<Token> t) {
     }
     // check if operator is a variable
     else if (t->type == name){
-        return GetVariableNodes();
+        return GetVariableNodes(t->token);
     }
     else Error("GetOperator: unexpected token");
 }
@@ -91,8 +91,14 @@ TokenNode Parser::GetLatexExpressionNodes() {
     Error("not yet implemented: GetLatexExpressionNodes");
 }
 
-TokenNode Parser::GetVariableNodes() {
-    Error("not yet implemented:GetVariableNodes" );
+TokenNode Parser::GetVariableNodes(string& variableName) {
+    for(int i = 0; i< variables.size(); i++){
+       TokenNode variable = *next(variables.begin(), i);
+       if(variable.nodes.begin()->name == variableName){
+            return variable;
+       }
+    }
+    Error("variable not declared");
 }
 
 

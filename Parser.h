@@ -25,6 +25,10 @@ class Parser {
         TokenNode GetLatexExpressionNodes();
         TokenNode GetVariableNodes();
         TokenNode GetOperator(_List_iterator<Token> t);
+
+    TokenNode GetVariableNodes(const string& variableName);
+
+    TokenNode GetVariableNodes(string &variableName);
 };
 
 
