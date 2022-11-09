@@ -1,4 +1,4 @@
 cook{
     Term i = 10
-    Term j = i + 12
+    Term j = i + 10
 }

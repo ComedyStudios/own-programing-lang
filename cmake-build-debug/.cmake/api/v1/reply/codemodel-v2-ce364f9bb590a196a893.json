@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/programing/programing-lang/cmake-build-debug",
-		"source" : "D:/programing/programing-lang"
+		"build" : "C:/programming/schule/compiler-programmingLang/cmake-build-debug",
+		"source" : "C:/programming/schule/compiler-programmingLang"
 	},
 	"version" : 
 	{

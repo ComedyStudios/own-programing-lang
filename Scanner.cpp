@@ -23,6 +23,7 @@ list<Category> categories = {
         Category(pointOperators,pointOperator),
         Category(dashOperators, dashOperator),
         Category('=', equalsOperator),
+        Category(';', semicolon),
 };
 list<Command> commands = {
         Command("cook", cook),
