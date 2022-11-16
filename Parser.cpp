@@ -75,15 +75,41 @@ TokenNode Parser::GetOperator() {
     //check if operator is a number
     TokenNode nodeToReturn = getValue();
     advance(currentToken,1);
-    if(currentToken->type == dashOperator || currentToken -> type == pointOperator){
-        list<TokenNode> nodes;
-        nodes.emplace_back(nodeToReturn);
-        nodeToReturn= currentToken;
-        advance(currentToken,1);
-        nodes.emplace_back(getValue());
-        nodeToReturn.nodes = nodes;
+    TokenNode lastOperator;
+    while (currentToken->type == dashOperator || currentToken -> type == pointOperator){
+        if(currentToken->type == pointOperator && lastOperator.type == dashOperator ){
+            //TODO: place nodes correctly
+            cout << "punkt vor Strich anwenden";
+            list<TokenNode> nodes;
+            auto previousFactor = lastOperator.nodes.begin();
+            advance(previousFactor, lastOperator.nodes.size()-1);
+            cout<<"loo";
+            nodes.emplace_back(*previousFactor);
+            TokenNode tempOperatorToken = currentToken;
+            advance(currentToken,  1);
+            nodes.emplace_back(getValue());
+            tempOperatorToken.nodes = nodes;
+            lastOperator.nodes.emplace_back(tempOperatorToken);
+            lastOperator = tempOperatorToken;
+            nodeToReturn.nodes.pop_back();
+            nodeToReturn.nodes.emplace_back(tempOperatorToken);
+            advance(currentToken, 1);
+
+        }
+        else{
+            list<TokenNode> nodes;
+            nodes.emplace_back(nodeToReturn);
+            nodeToReturn= currentToken;
+            advance(currentToken,1);
+            nodes.emplace_back(getValue());
+            nodeToReturn.nodes = nodes;
+            lastOperator = nodeToReturn;
+            advance(currentToken,1);
+        }
     }
-    else advance(currentToken, -1);
+    if(currentToken->type != dashOperator && currentToken -> type != pointOperator){
+        advance(currentToken, -1);
+    }
     return nodeToReturn;
 }
 
@@ -116,12 +142,12 @@ TokenNode Parser::GetLatexExpressionNodes() {
 TokenNode Parser::GetVariableNodes(string& name) {
     //TODO: do a typecheck here and see if the variable is compatible with the format
     for(int i = 0; i< variables.size(); i++){
-       TokenNode variable = *next(variables.begin(), i);
-       TokenNode variableName = *variable.nodes.begin();
-       TokenNode valueNode = *variableName.nodes.begin();
-       if(variableName.name == name){
+        TokenNode variable = *next(variables.begin(), i);
+        TokenNode variableName = *variable.nodes.begin();
+        TokenNode valueNode = *variableName.nodes.begin();
+        if(variableName.name == name){
             return valueNode;
-       }
+        }
     }
     Error("variable not declared");
 }
