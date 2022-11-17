@@ -1,4 +1,5 @@
 cook{
+    Term a = \frac{20}{2}
     Term i = 10
     Term j = i + 12 * 13
 }

@@ -3,6 +3,7 @@
 //
 
 #include "Parser.h"
+#include "LatexExpression.h"
 
 #include <utility>
 
@@ -78,12 +79,9 @@ TokenNode Parser::GetOperator() {
     TokenNode lastOperator;
     while (currentToken->type == dashOperator || currentToken -> type == pointOperator){
         if(currentToken->type == pointOperator && lastOperator.type == dashOperator ){
-            //TODO: place nodes correctly
-            cout << "punkt vor Strich anwenden";
             list<TokenNode> nodes;
             auto previousFactor = lastOperator.nodes.begin();
             advance(previousFactor, lastOperator.nodes.size()-1);
-            cout<<"loo";
             nodes.emplace_back(*previousFactor);
             TokenNode tempOperatorToken = currentToken;
             advance(currentToken,  1);
@@ -123,7 +121,6 @@ TokenNode Parser::getValue() {
     else if(currentToken->type == latexCommandOperator){
         advance(currentToken, 1);
         if(currentToken->type == latexCommand){
-            advance(currentToken, 1);
             nodeToReturn = GetLatexExpressionNodes();
         }
     }
@@ -136,7 +133,32 @@ TokenNode Parser::getValue() {
 }
 
 TokenNode Parser::GetLatexExpressionNodes() {
-    Error("not yet implemented: GetLatexExpressionNodes");
+    list<LatexExpression> LatexExpressions = {LatexExpression("frac",2)};
+    TokenNode LatexNodeToReturn;
+    for(LatexExpression& exp : LatexExpressions){
+        if(exp.expressionName == currentToken->token){
+            LatexNodeToReturn.name = currentToken->token;
+            advance(currentToken, 1);
+            for(int i = 0; i < exp.amountOfArguments; i++){
+                if(currentToken->type != BraceOpenCurly){
+                    Error("'{' Expected");
+                }
+                else{
+                    advance(currentToken, 1);
+                }
+                LatexNodeToReturn.nodes.emplace_back(GetOperator());
+                advance(currentToken, 1);
+                if(currentToken->type != BraceCloseCurly){
+                    Error("'}' Expected");
+                }
+                else{
+                    advance(currentToken, 1);
+                }
+            }
+            advance(currentToken, -1);
+        }
+    }
+    return LatexNodeToReturn;
 }
 
 TokenNode Parser::GetVariableNodes(string& name) {
