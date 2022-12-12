@@ -24,11 +24,13 @@ list<Category> categories = {
         Category(dashOperators, dashOperator),
         Category('=', equalsOperator),
         Category(';', semicolon),
+        Category(',',comma),
 };
 list<Command> commands = {
         Command("cook", cook),
         Command("Term", declaration),
         Command("calc", calc),
+        Command("void", declaration),
 };
 list<string> latexCommands = {"frac",};
 list<Token> tokens;

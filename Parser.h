@@ -17,6 +17,8 @@ class Parser {
         list<Token> tokens;
         _List_iterator<Token> currentToken;
         list<TokenNode> variables;
+        list<TokenNode> methods;
+        TokenNode mainNode;
         explicit Parser(list<Token> tokenList);
         void Parse();
     private:
@@ -28,6 +30,8 @@ class Parser {
     TokenNode GetOperator();
 
     TokenNode getValue();
+
+    list<struct TokenNode> GetParameters();
 };
 
 

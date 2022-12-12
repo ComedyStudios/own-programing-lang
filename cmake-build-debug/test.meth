@@ -1,5 +1,4 @@
 cook{
-    Term a = \frac{20}{2}
-    Term i = 10
-    Term j = i + 12 * 13
+    Term a = (20 + 3) * 4
+    void test (Term lol, Term lel){}
 }

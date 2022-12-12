@@ -23,6 +23,7 @@ enum TokenTypes{
     cook,
     name,
     semicolon,
+    comma,
 };
 
 

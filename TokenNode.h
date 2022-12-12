@@ -17,6 +17,7 @@ public:
     string name;
     TokenTypes type;
     list<TokenNode> nodes;
+    list<TokenNode> parametersForMethods;
     TokenNode();
     TokenNode(_List_iterator<Token> token);
     TokenNode(string n, TokenTypes t);
