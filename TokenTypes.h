@@ -24,6 +24,14 @@ enum TokenTypes{
     name,
     semicolon,
     comma,
+    logicOperator,
+    EquealsBoolTo,
+    GraterThan,
+    LesserThan,
+    GraterEquals,
+    LesserEquals,
+    QuoatationMarks,
+    String,
 };
 
 

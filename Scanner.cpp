@@ -25,14 +25,20 @@ list<Category> categories = {
         Category('=', equalsOperator),
         Category(';', semicolon),
         Category(',',comma),
+        Category('<', LesserThan),
+        Category('>',GraterThan),
+        Category('"', QuoatationMarks)
 };
 list<Command> commands = {
         Command("cook", cook),
         Command("Term", declaration),
         Command("calc", calc),
         Command("void", declaration),
+        Command("if", logicOperator),
+        Command("else", logicOperator),
+        Command("while", logicOperator),
 };
-list<string> latexCommands = {"frac",};
+list<string> latexCommands = {"frac"};
 list<Token> tokens;
 string currentLine;
 char currentChar;

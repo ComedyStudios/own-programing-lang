@@ -32,6 +32,16 @@ class Parser {
     TokenNode getValue();
 
     list<struct TokenNode> GetParameters();
+
+    TokenNode GetBlock();
+
+    TokenNode GetBoolOperator();
+
+    TokenNode CheckCheckIfTokensAreABoolean();
+
+    TokenNode GetBoolParameter();
+    
+    TokenNode &GetLogicExpression();
 };
 
 
