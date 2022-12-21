@@ -40,7 +40,7 @@ class Parser {
     TokenNode CheckCheckIfTokensAreABoolean();
 
     TokenNode GetBoolParameter();
-    
+
     TokenNode &GetLogicExpression();
 };
 

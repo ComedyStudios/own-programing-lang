@@ -87,6 +87,7 @@ TokenNode Parser::CheckCheckIfTokensAreABoolean() {
     RightParameter = GetBoolParameter();
     advance(currentToken,1);
     nodeToReturn = GetBoolOperator();
+    //TODO: you cant use >= or similar on a string fix that!
     advance(currentToken, 1);
     LeftParameter = GetBoolParameter();
     nodeToReturn.nodes.emplace_back(RightParameter);
