@@ -1,5 +1,6 @@
 cook{
     Term a = (20 + 3) * 4
+    a += 20
     void test (Term lol, Term lel){
     }
 }

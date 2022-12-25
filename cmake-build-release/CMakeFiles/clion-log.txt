@@ -1,4 +1,0 @@
-D:\installs\jetbrains\apps\CLion\ch-0\222.4345.21\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - MinGW Makefiles" -S D:\programing\programing-lang -B D:\programing\programing-lang\cmake-build-release
--- Configuring done
--- Generating done
--- Build files have been written to: D:/programing/programing-lang/cmake-build-release

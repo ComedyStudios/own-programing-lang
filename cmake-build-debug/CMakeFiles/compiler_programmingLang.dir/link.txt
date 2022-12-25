@@ -1,0 +1,3 @@
+D:\installs\jetbrains\apps\CLion\ch-0\223.7571.171\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\compiler_programmingLang.dir/objects.a
+D:\installs\jetbrains\apps\CLion\ch-0\223.7571.171\bin\mingw\bin\ar.exe qc CMakeFiles\compiler_programmingLang.dir/objects.a @CMakeFiles\compiler_programmingLang.dir\objects1.rsp
+D:\installs\jetbrains\apps\CLion\ch-0\223.7571.171\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\compiler_programmingLang.dir/objects.a -Wl,--no-whole-archive -o compiler_programmingLang.exe -Wl,--out-implib,libcompiler_programmingLang.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\compiler_programmingLang.dir\linklibs.rsp

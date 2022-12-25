@@ -40,7 +40,10 @@ void Parser::Parse() {
                 advance(currentToken,1);
                 break;
             default:
-                mainNode.nodes.emplace_back(GetBlock());
+                TokenNode newNode = GetBlock();
+                if(newNode.type != space){
+                    mainNode.nodes.emplace_back(GetBlock());
+                }
                 break;
         }
     }
@@ -51,12 +54,72 @@ TokenNode Parser::GetBlock() {
     if(currentToken->type == logicOperator){
         tokenToReturn = GetLogicExpression();
     }
+    else if(currentToken->type == name){
+        TokenNode temp = currentToken;
+        advance(currentToken, 1);
+        if(currentToken->type == BraceOpenNormal){
+        tokenToReturn = CallMethod(currentToken->token);
+        }
+        else if (currentToken->type == pointOperator ||currentToken->type == dashOperator){
+            ModifyValueOfVariable(temp);
+            //this is retarded, I know it, I'm to lazy to change it
+            tokenToReturn = TokenNode("", space);
+        }
+    }
+    else
     return tokenToReturn;
+}
+
+void Parser::ModifyValueOfVariable(const TokenNode &temp) {
+    TokenNode tempOperator = currentToken;
+    bool variableHasBeenFound = false;
+    advance(currentToken, 1);
+    if(currentToken->type == equalsOperator){
+        advance(currentToken, 1);
+        for (TokenNode& t : mainNode.nodes) {
+            TokenNode& nameNode = t.nodes.begin().operator*();
+            if(nameNode.name == temp.name){
+                tempOperator.nodes = nameNode.nodes;
+                tempOperator.nodes.emplace_back(GetAssertionValue());
+                nameNode.nodes.pop_back();
+                nameNode.nodes.emplace_back(tempOperator);
+                advance(currentToken, 1);
+                variableHasBeenFound = true;
+            }
+            //TODO: maybe to typecheck if have time
+        }
+        if(!variableHasBeenFound){
+            Error("variable has not been found or needs to be declared first");
+        }
+    }
+    else Error("allocation expected");
+}
+
+TokenNode Parser::CallMethod(string methodName) {
+    //TODO: manage methode calls
+    TokenNode method = TokenNode(methodName, name);
+    list<TokenNode> parameters = list<TokenNode>();
+    advance(currentToken, 1);
+    if(currentToken->type != BraceCloseNormal){
+        parameters.emplace_back(GetParameter());
+        advance(currentToken, 1);
+        while(currentToken->type == comma){
+            advance(currentToken, 1);
+            parameters.emplace_back(GetParameter());
+            advance(currentToken, 1);
+        }
+        if(currentToken->type != BraceCloseNormal){
+            Error(" ) Expected ");
+        }
+        //TODO: call method here with the parameters
+    }
+    return method;
 }
 
 TokenNode &Parser::GetLogicExpression() {
     TokenNode boolExpression;
-    TokenNode tokenToReturn = currentToken;
+    TokenNode tokenToReturn;
+    tokenToReturn = currentToken;
     advance(currentToken, 1);
     if(currentToken->type == BraceOpenNormal){
         advance(currentToken, 1);
@@ -66,6 +129,7 @@ TokenNode &Parser::GetLogicExpression() {
         {
             advance(currentToken, 1);
             if(currentToken->type == BraceOpenCurly){
+                advance(currentToken, 1);
                 while(currentToken->type != BraceCloseCurly){
                     boolExpression.nodes.emplace_back(GetBlock());
                     advance(currentToken, 1);
@@ -84,15 +148,18 @@ TokenNode Parser::CheckCheckIfTokensAreABoolean() {
     TokenNode nodeToReturn;
     TokenNode RightParameter;
     TokenNode LeftParameter;
-    RightParameter = GetBoolParameter();
+    RightParameter = GetParameter();
     advance(currentToken,1);
     nodeToReturn = GetBoolOperator();
-    //TODO: you cant use >= or similar on a string fix that!
     advance(currentToken, 1);
-    LeftParameter = GetBoolParameter();
+    LeftParameter = GetParameter();
+    if(RightParameter.type == String||LeftParameter.type == String){
+        if(nodeToReturn.type != EqualsBoolTo && nodeToReturn.type !=UnequalsBoolTo){
+            Error("invalid Operator");
+        }
+    }
     nodeToReturn.nodes.emplace_back(RightParameter);
     nodeToReturn.nodes.emplace_back(LeftParameter);
-    //TODO: make that you can use a value instead of a variable
     return nodeToReturn;
 }
 
@@ -101,7 +168,7 @@ TokenNode Parser::GetBoolOperator(){
     if(currentToken->token == "="){
         advance(currentToken, 1);
         if(currentToken->token == "="){
-            nodeToReturn = TokenNode("==", EquealsBoolTo);
+            nodeToReturn = TokenNode("==", EqualsBoolTo);
         }
         else if(currentToken->token == "<"){
             nodeToReturn = TokenNode("=<", LesserEquals);
@@ -110,13 +177,19 @@ TokenNode Parser::GetBoolOperator(){
             nodeToReturn = TokenNode("=<", GraterEquals);
         }
     }
+    else if(currentToken->token == "!"){
+        advance(currentToken,1);
+        if(currentToken->token == "="){
+            nodeToReturn = TokenNode("!=", UnequalsBoolTo);
+        }else Error("Unexpected token");
+    }
     else if(currentToken->token == ">" || currentToken->token == "<"){
         nodeToReturn = currentToken;
     }
     return nodeToReturn;
 }
 
-TokenNode Parser::GetBoolParameter() {
+TokenNode Parser::GetParameter() {
     TokenNode Parameter;
     if(currentToken->type == name){
         Parameter = GetVariableNodes(currentToken->token);
@@ -161,7 +234,7 @@ void Parser::ManageDeclaration() {
         if(declaredType == "Term"){
             advance(currentToken,1);
             //connect the name of the variable with the value of the variable
-            nameNode.nodes.emplace_back(GetOperator());
+            nameNode.nodes.emplace_back(GetAssertionValue());
             typeNode.nodes.emplace_back(nameNode);
         }
         else Error("invalid or unimplemented declaration");
@@ -172,7 +245,7 @@ void Parser::ManageDeclaration() {
         list<TokenNode> parameters = list<TokenNode>();
         advance(currentToken, 1);
         if(currentToken->type != BraceCloseNormal){
-            parameters = GetParameters();
+            parameters = GetMethodDeclarationParameters();
         }
         advance(currentToken,2);
         if(currentToken->type == BraceOpenCurly){
@@ -190,7 +263,7 @@ void Parser::ManageDeclaration() {
     cout << "TODO: (not completely implemented) manage declaration"<< endl;
 }
 
-list<TokenNode> Parser::GetParameters(){
+list<TokenNode> Parser::GetMethodDeclarationParameters(){
     list<TokenNode> parameterList = list<TokenNode>();
     TokenNode parameter = TokenNode();
     if(currentToken->type == declaration|| currentToken->token != "void"){
@@ -203,7 +276,7 @@ list<TokenNode> Parser::GetParameters(){
             advance(currentToken, 1);
             if(currentToken->type == comma){
                 advance(currentToken,1);
-                for(const TokenNode& p :GetParameters()){
+                for(const TokenNode& p : GetMethodDeclarationParameters()){
                     parameterList.emplace_back(p);
                 }
             } else advance(currentToken,-1);
@@ -213,7 +286,7 @@ list<TokenNode> Parser::GetParameters(){
     return parameterList;
 }
 
-TokenNode Parser::GetOperator() {
+TokenNode Parser::GetAssertionValue() {
     //check if operator is a number
     TokenNode nodeToReturn = getValue();
     advance(currentToken,1);
@@ -271,13 +344,13 @@ TokenNode Parser::getValue() {
     }
     else if (currentToken-> type == BraceOpenNormal){
         advance(currentToken, 1);
-        nodeToReturn = GetOperator();
+        nodeToReturn = GetAssertionValue();
         advance(currentToken, 1);
         if(currentToken->type != BraceCloseNormal){
             Error(") expected");
         }
     }
-    else Error("GetOperator: unexpected token");
+    else Error("GetAssertionValue: unexpected token");
     return nodeToReturn;
 }
 
@@ -295,7 +368,7 @@ TokenNode Parser::GetLatexExpressionNodes() {
                 else{
                     advance(currentToken, 1);
                 }
-                LatexNodeToReturn.nodes.emplace_back(GetOperator());
+                LatexNodeToReturn.nodes.emplace_back(GetAssertionValue());
                 advance(currentToken, 1);
                 if(currentToken->type != BraceCloseCurly){
                     Error("'}' Expected");
@@ -319,8 +392,10 @@ TokenNode Parser::GetVariableNodes(string& name) {
         if(variableName.name == name){
             return valueNode;
         }
+
     }
     Error("variable not declared");
+    return TokenNode("Error", space);
 }
 
 void Parser::Error(const string& s) {

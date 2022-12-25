@@ -27,11 +27,11 @@ class Parser {
         TokenNode GetLatexExpressionNodes();
         TokenNode GetVariableNodes(string &variableName);
 
-    TokenNode GetOperator();
+    TokenNode GetAssertionValue();
 
     TokenNode getValue();
 
-    list<struct TokenNode> GetParameters();
+    list<struct TokenNode> GetMethodDeclarationParameters();
 
     TokenNode GetBlock();
 
@@ -39,9 +39,13 @@ class Parser {
 
     TokenNode CheckCheckIfTokensAreABoolean();
 
-    TokenNode GetBoolParameter();
+    TokenNode GetParameter();
 
     TokenNode &GetLogicExpression();
+
+    TokenNode CallMethod(string methodName);
+
+    void ModifyValueOfVariable(const TokenNode &temp);
 };
 
 
