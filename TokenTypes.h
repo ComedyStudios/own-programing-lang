@@ -33,6 +33,7 @@ enum TokenTypes{
     LesserEquals,
     QuoatationMarks,
     String,
+    MethodDeclaration
 };
 
 

@@ -14,6 +14,7 @@ using namespace std;
 
 class Parser {
     public:
+        bool IsInsideMethod = false;
         list<Token> tokens;
         _List_iterator<Token> currentToken;
         list<TokenNode> variables;
@@ -43,9 +44,11 @@ class Parser {
 
     TokenNode &GetLogicExpression();
 
-    TokenNode CallMethod(string methodName);
+    TokenNode SaveMethodCall(string methodName);
 
     void ModifyValueOfVariable(const TokenNode &temp);
+
+    void CallMethod();
 };
 
 

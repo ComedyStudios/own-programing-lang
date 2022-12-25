@@ -40,10 +40,31 @@ void Parser::Parse() {
             default:
                 TokenNode newNode = GetBlock();
                 if(newNode.type != space){
-                    mainNode.nodes.emplace_back(GetBlock());
+                    mainNode.nodes.emplace_back(newNode);
                 }
                 break;
         }
+    }
+    CallMethod();
+}
+
+void Parser::CallMethod() {
+    auto token = mainNode.nodes.begin();
+    bool methodHasBeenFound = false;
+    for (int i = 0; i < mainNode.nodes.size(); i++) {
+        methodHasBeenFound = false;
+        if(token->type == MethodDeclaration){
+            for (TokenNode method : methods) {
+                if(token->name == method.nodes.begin()->name){
+                    token.operator*() = method;
+                    methodHasBeenFound = true;
+                }
+            }
+            if(!methodHasBeenFound){
+                Error("no such method has been declared");
+            }
+        }
+        advance(token,1);
     }
 }
 
@@ -56,7 +77,7 @@ TokenNode Parser::GetBlock() {
         TokenNode temp = currentToken;
         advance(currentToken, 1);
         if(currentToken->type == BraceOpenNormal){
-        tokenToReturn = CallMethod(currentToken->token);
+        tokenToReturn = SaveMethodCall(temp.name);
         }
         else if (currentToken->type == pointOperator ||currentToken->type == dashOperator){
             ModifyValueOfVariable(temp);
@@ -64,7 +85,6 @@ TokenNode Parser::GetBlock() {
             tokenToReturn = TokenNode("", space);
         }
     }
-    else
     return tokenToReturn;
 }
 
@@ -74,7 +94,8 @@ void Parser::ModifyValueOfVariable(const TokenNode &temp) {
     advance(currentToken, 1);
     if(currentToken->type == equalsOperator){
         advance(currentToken, 1);
-        for (TokenNode& t : mainNode.nodes) {
+        //TODO: can also be done with GetVariableNodes
+        for (TokenNode& t : variables) {
             TokenNode& nameNode = t.nodes.begin().operator*();
             if(nameNode.name == temp.name){
                 tempOperator.nodes = nameNode.nodes;
@@ -93,22 +114,22 @@ void Parser::ModifyValueOfVariable(const TokenNode &temp) {
     else Error("allocation expected");
 }
 
-TokenNode Parser::CallMethod(string methodName) {
+TokenNode Parser::SaveMethodCall(string methodName) {
     //TODO: manage methode calls
-    TokenNode method = TokenNode(methodName, name);
+    TokenNode method = TokenNode(methodName, MethodDeclaration);
     list<TokenNode> parameters = list<TokenNode>();
     advance(currentToken, 1);
     if(currentToken->type != BraceCloseNormal){
         parameters.emplace_back(GetParameter());
-        advance(currentToken, 1);
         while(currentToken->type == comma){
             advance(currentToken, 1);
             parameters.emplace_back(GetParameter());
-            advance(currentToken, 1);
         }
         if(currentToken->type != BraceCloseNormal){
             Error(" ) Expected ");
         }
+        method.nodes = parameters;
+        advance(currentToken, 1);
         //TODO: call method here with the parameters
     }
     return method;
@@ -237,9 +258,8 @@ void Parser::ManageDeclaration() {
         }
         else Error("invalid or unimplemented declaration");
         variables.emplace_back(typeNode);
-
     }
-    else if(currentToken->type == BraceOpenNormal){
+    else if(currentToken->type == BraceOpenNormal && !IsInsideMethod){
         //manage method declarations
         list<TokenNode> parameters = list<TokenNode>();
         advance(currentToken, 1);
@@ -248,19 +268,24 @@ void Parser::ManageDeclaration() {
         }
         advance(currentToken,2);
         if(currentToken->type == BraceOpenCurly){
-           while(currentToken->type != BraceCloseCurly){
-               cout<< "this is a token inside the Method body";
-               advance(currentToken,1);
-           }
+            advance(currentToken, 1);
+            IsInsideMethod = true;
+            for(TokenNode parameter : parameters){
+                
+            }
+            while(currentToken->type != BraceCloseCurly){
+                GetBlock();
+                advance(currentToken,1);
+            IsInsideMethod = false;
+            }
             nameNode.parametersForMethods = parameters;
             typeNode.nodes.emplace_back(nameNode);
         }else Error("expected open curly brace");
         methods.emplace_back(typeNode);
     }
     else Error(" '=' or method declaration expected ");
-    mainNode.nodes.emplace_back(typeNode);
+
     advance(currentToken,1);
-    cout << "TODO: (not completely implemented) manage declaration"<< endl;
 }
 
 list<TokenNode> Parser::GetMethodDeclarationParameters(){
@@ -395,7 +420,6 @@ TokenNode Parser::GetVariableNodes(string& name) {
 
     }
     Error("variable not declared");
-    return TokenNode("Error", space);
 }
 
 void Parser::Error(const string& s) {

@@ -1,6 +1,9 @@
 cook{
     Term a = (20 + 3) * 4
+    Term b = 34 -22
     a += 20
+    test (a,b)
+
     void test (Term lol, Term lel){
-    }
+        }
 }
