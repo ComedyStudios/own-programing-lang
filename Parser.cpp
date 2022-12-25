@@ -36,8 +36,6 @@ void Parser::Parse() {
         switch (currentToken->type) {
             case declaration:
                 ManageDeclaration();
-                mainNode.nodes = variables;
-                advance(currentToken,1);
                 break;
             default:
                 TokenNode newNode = GetBlock();
@@ -239,6 +237,7 @@ void Parser::ManageDeclaration() {
         }
         else Error("invalid or unimplemented declaration");
         variables.emplace_back(typeNode);
+
     }
     else if(currentToken->type == BraceOpenNormal){
         //manage method declarations
@@ -259,7 +258,8 @@ void Parser::ManageDeclaration() {
         methods.emplace_back(typeNode);
     }
     else Error(" '=' or method declaration expected ");
-
+    mainNode.nodes.emplace_back(typeNode);
+    advance(currentToken,1);
     cout << "TODO: (not completely implemented) manage declaration"<< endl;
 }
 
