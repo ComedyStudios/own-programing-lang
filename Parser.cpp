@@ -49,6 +49,7 @@ void Parser::Parse() {
 }
 
 void Parser::CallMethod() {
+    //TODO: add the use of parameters
     auto token = mainNode.nodes.begin();
     bool methodHasBeenFound = false;
     for (int i = 0; i < mainNode.nodes.size(); i++) {
@@ -70,6 +71,8 @@ void Parser::CallMethod() {
 
 TokenNode Parser::GetBlock() {
     TokenNode tokenToReturn;
+
+    //TODO: do parameters if have time
     if(currentToken->type == logicOperator){
         tokenToReturn = GetLogicExpression();
     }
@@ -85,6 +88,7 @@ TokenNode Parser::GetBlock() {
             tokenToReturn = TokenNode("", space);
         }
     }
+    else Error("dont know what to do");
     return tokenToReturn;
 }
 
@@ -135,7 +139,7 @@ TokenNode Parser::SaveMethodCall(string methodName) {
     return method;
 }
 
-TokenNode &Parser::GetLogicExpression() {
+TokenNode Parser::GetLogicExpression() {
     TokenNode boolExpression;
     TokenNode tokenToReturn;
     tokenToReturn = currentToken;
@@ -143,14 +147,16 @@ TokenNode &Parser::GetLogicExpression() {
     if(currentToken->type == BraceOpenNormal){
         advance(currentToken, 1);
          boolExpression = CheckCheckIfTokensAreABoolean();
-        advance(currentToken, 1);
         if(currentToken->type == BraceCloseNormal)
         {
             advance(currentToken, 1);
             if(currentToken->type == BraceOpenCurly){
                 advance(currentToken, 1);
                 while(currentToken->type != BraceCloseCurly){
-                    boolExpression.nodes.emplace_back(GetBlock());
+                    auto block = GetBlock();
+                    if(block.type != space){
+                        boolExpression.nodes.emplace_back(block);
+                    }
                     advance(currentToken, 1);
                 }
             }else Error("Expected '{");
@@ -168,9 +174,7 @@ TokenNode Parser::CheckCheckIfTokensAreABoolean() {
     TokenNode RightParameter;
     TokenNode LeftParameter;
     RightParameter = GetParameter();
-    advance(currentToken,1);
     nodeToReturn = GetBoolOperator();
-    advance(currentToken, 1);
     LeftParameter = GetParameter();
     if(RightParameter.type == String||LeftParameter.type == String){
         if(nodeToReturn.type != EqualsBoolTo && nodeToReturn.type !=UnequalsBoolTo){
@@ -205,6 +209,7 @@ TokenNode Parser::GetBoolOperator(){
     else if(currentToken->token == ">" || currentToken->token == "<"){
         nodeToReturn = currentToken;
     }
+    advance(currentToken,1);
     return nodeToReturn;
 }
 
@@ -270,14 +275,11 @@ void Parser::ManageDeclaration() {
         if(currentToken->type == BraceOpenCurly){
             advance(currentToken, 1);
             IsInsideMethod = true;
-            for(TokenNode parameter : parameters){
-                
-            }
             while(currentToken->type != BraceCloseCurly){
-                GetBlock();
-                advance(currentToken,1);
-            IsInsideMethod = false;
+                nameNode.nodes.emplace_back(GetBlock());
+                //TODO: if you modify a variable inside the method declaration it gets changed inside of the list, but it shoould only be done if the method is called (fix if have time)
             }
+            IsInsideMethod = false;
             nameNode.parametersForMethods = parameters;
             typeNode.nodes.emplace_back(nameNode);
         }else Error("expected open curly brace");
@@ -296,7 +298,9 @@ list<TokenNode> Parser::GetMethodDeclarationParameters(){
         parameter.name= currentToken->token;
         advance(currentToken, 1);
         if(currentToken->type == name) {
-            parameter.nodes.emplace_back(TokenNode(currentToken->token,name));
+            TokenNode parameterName = TokenNode(currentToken->token,name);
+            parameterName.nodes.emplace_back(TokenNode("value", space));
+            parameter.nodes.emplace_back(parameterName);
             parameterList.emplace_back(parameter);
             advance(currentToken, 1);
             if(currentToken->type == comma){

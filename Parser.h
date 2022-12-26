@@ -42,7 +42,7 @@ class Parser {
 
     TokenNode GetParameter();
 
-    TokenNode &GetLogicExpression();
+    TokenNode GetLogicExpression();
 
     TokenNode SaveMethodCall(string methodName);
 

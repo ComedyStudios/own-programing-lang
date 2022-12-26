@@ -5,5 +5,8 @@ cook{
     test (a,b)
 
     void test (Term lol, Term lel){
+        if(a > b){
+            a += 10
         }
+    }
 }
