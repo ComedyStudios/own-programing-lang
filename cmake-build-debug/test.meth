@@ -1,12 +1,9 @@
 cook{
     Term a = (20 + 3) * 4
     Term b = 34 -22
-    a += 20
-    test (a,b)
+    test (20)
 
-    void test (Term lol, Term lel){
-        if(a > b){
-            a += 10
-        }
+    void test (Term c){
+        b += c
     }
 }

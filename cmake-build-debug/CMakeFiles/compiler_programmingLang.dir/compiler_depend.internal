@@ -645,6 +645,24 @@ CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj
  D:/programing/programing-lang/LatexExpression.h
  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility
  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h
+ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc
 
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj
  D:/programing/programing-lang/Scanner.cpp

@@ -640,7 +640,25 @@ CMakeFiles/compiler_programmingLang.dir/Parser.cpp.obj: D:/programing/programing
   D:/programing/programing-lang/TokenNode.h \
   D:/programing/programing-lang/LatexExpression.h \
   D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/utility \
-  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_relops.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
+  D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc
 
 CMakeFiles/compiler_programmingLang.dir/Scanner.cpp.obj: D:/programing/programing-lang/Scanner.cpp \
   D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/list \
@@ -1369,6 +1387,8 @@ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h:
 
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_uninitialized.h:
+
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/x86_64-w64-mingw32/include/vadefs.h:
@@ -1449,6 +1469,8 @@ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr.h:
 
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable_policy.h:
+
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/x86_64-w64-mingw32/include/pthread.h:
@@ -1507,6 +1529,8 @@ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/ostream_insert.h:
 
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/tuple:
+
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h:
@@ -1539,6 +1563,8 @@ D:/programing/programing-lang/Parser.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_tempbuf.h:
 
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/std_function.h:
+
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/basic_string.h:
@@ -1563,6 +1589,8 @@ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/locale_classes.tcc:
 
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/unordered_map.h:
+
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/system_error:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/error_constants.h:
@@ -1580,6 +1608,8 @@ D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/x86_64-w64-mingw32/include/wctype.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/invoke.h:
 
 D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/streambuf_iterator.h:
 
@@ -1624,6 +1654,30 @@ D:/programing/programing-lang/Command.h:
 D:/programing/programing-lang/LatexExpression.cpp:
 
 D:/programing/programing-lang/Parser.cpp:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/functional:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/array:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/uses_allocator.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/refwrap.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/unordered_map:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/hashtable.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/node_handle.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/vector:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_vector.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h:
+
+D:/installs/jetbrains/apps/CLion/ch-0/223.7571.171/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc:
 
 D:/programing/programing-lang/Scanner.cpp:
 

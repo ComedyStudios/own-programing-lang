@@ -26,11 +26,11 @@ class Parser {
         static void Error(const string& s);
         void ManageDeclaration();
         TokenNode GetLatexExpressionNodes();
-        TokenNode GetVariableNodes(string &variableName);
+        TokenNode & GetVariableNodes(string variableName);
 
-    TokenNode GetAssertionValue();
+    TokenNode & GetAssertionValue();
 
-    TokenNode getValue();
+    TokenNode & getValue();
 
     list<struct TokenNode> GetMethodDeclarationParameters();
 
@@ -49,6 +49,7 @@ class Parser {
     void ModifyValueOfVariable(const TokenNode &temp);
 
     void CallMethod();
+
 };
 
 

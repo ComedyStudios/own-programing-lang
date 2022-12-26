@@ -6,6 +6,7 @@
 #include "LatexExpression.h"
 
 #include <utility>
+#include <functional>
 
 using namespace std;
 
@@ -55,8 +56,9 @@ void Parser::CallMethod() {
     for (int i = 0; i < mainNode.nodes.size(); i++) {
         methodHasBeenFound = false;
         if(token->type == MethodDeclaration){
-            for (TokenNode method : methods) {
+            for (TokenNode& method : methods) {
                 if(token->name == method.nodes.begin()->name){
+                    method.nodes.begin().operator*().parametersForMethods = token->nodes;
                     token.operator*() = method;
                     methodHasBeenFound = true;
                 }
@@ -125,6 +127,7 @@ TokenNode Parser::SaveMethodCall(string methodName) {
     advance(currentToken, 1);
     if(currentToken->type != BraceCloseNormal){
         parameters.emplace_back(GetParameter());
+
         while(currentToken->type == comma){
             advance(currentToken, 1);
             parameters.emplace_back(GetParameter());
@@ -221,6 +224,7 @@ TokenNode Parser::GetParameter() {
     }
     else if (currentToken->type == number){
         Parameter = currentToken;
+        advance(currentToken, 1);
     }
     else if(currentToken->type == QuoatationMarks) {
         advance(currentToken,1);
@@ -275,9 +279,16 @@ void Parser::ManageDeclaration() {
         if(currentToken->type == BraceOpenCurly){
             advance(currentToken, 1);
             IsInsideMethod = true;
+            auto tempSize = variables.size();
+            for(TokenNode& parameter: parameters){
+                variables.emplace_back(parameter);
+            }
             while(currentToken->type != BraceCloseCurly){
                 nameNode.nodes.emplace_back(GetBlock());
                 //TODO: if you modify a variable inside the method declaration it gets changed inside of the list, but it shoould only be done if the method is called (fix if have time)
+            }
+            while(tempSize < variables.size()){
+                variables.pop_back();
             }
             IsInsideMethod = false;
             nameNode.parametersForMethods = parameters;
@@ -299,7 +310,7 @@ list<TokenNode> Parser::GetMethodDeclarationParameters(){
         advance(currentToken, 1);
         if(currentToken->type == name) {
             TokenNode parameterName = TokenNode(currentToken->token,name);
-            parameterName.nodes.emplace_back(TokenNode("value", space));
+            parameterName.nodes.emplace_back(TokenNode("", space));
             parameter.nodes.emplace_back(parameterName);
             parameterList.emplace_back(parameter);
             advance(currentToken, 1);
@@ -315,16 +326,17 @@ list<TokenNode> Parser::GetMethodDeclarationParameters(){
     return parameterList;
 }
 
-TokenNode Parser::GetAssertionValue() {
+TokenNode& Parser::GetAssertionValue() {
     //check if operator is a number
-    TokenNode nodeToReturn = getValue();
+    TokenNode& nodeToReturn = getValue();
     advance(currentToken,1);
     TokenNode lastOperator;
     while (currentToken->type == dashOperator || currentToken -> type == pointOperator){
         if(currentToken->type == pointOperator && lastOperator.type == dashOperator ){
             list<TokenNode> nodes;
             auto previousFactor = lastOperator.nodes.begin();
-            advance(previousFactor, lastOperator.nodes.size()-1);
+            auto tempSize = lastOperator.nodes.size()-1;
+            advance(previousFactor, tempSize);
             nodes.emplace_back(*previousFactor);
             TokenNode tempOperatorToken = currentToken;
             advance(currentToken,  1);
@@ -354,8 +366,8 @@ TokenNode Parser::GetAssertionValue() {
     return nodeToReturn;
 }
 
-TokenNode Parser::getValue() {
-    TokenNode nodeToReturn = *new TokenNode();
+TokenNode& Parser::getValue() {
+    TokenNode& nodeToReturn = *new TokenNode();
     if(currentToken->type == number){
         nodeToReturn = *new TokenNode(currentToken);
     }
@@ -371,15 +383,15 @@ TokenNode Parser::getValue() {
     else if (currentToken->type == name){
         nodeToReturn = GetVariableNodes(currentToken->token);
     }
-    else if (currentToken-> type == BraceOpenNormal){
+
+    else if (currentToken->type == BraceOpenNormal) {
         advance(currentToken, 1);
         nodeToReturn = GetAssertionValue();
         advance(currentToken, 1);
-        if(currentToken->type != BraceCloseNormal){
+        if (currentToken->type != BraceCloseNormal) {
             Error(") expected");
         }
-    }
-    else Error("GetAssertionValue: unexpected token");
+    } else Error("GetAssertionValue: unexpected token");
     return nodeToReturn;
 }
 
@@ -412,12 +424,13 @@ TokenNode Parser::GetLatexExpressionNodes() {
     return LatexNodeToReturn;
 }
 
-TokenNode Parser::GetVariableNodes(string& name) {
+TokenNode& Parser::GetVariableNodes(string name) {
+    auto size = variables.size();
     //TODO: do a typecheck here and see if the variable is compatible with the format
-    for(int i = 0; i< variables.size(); i++){
-        TokenNode variable = *next(variables.begin(), i);
-        TokenNode variableName = *variable.nodes.begin();
-        TokenNode valueNode = *variableName.nodes.begin();
+    for(int i = 0; i< size; i++){
+        TokenNode& variable = next(variables.begin(), i).operator*();
+        TokenNode& variableName = variable.nodes.begin().operator*();
+        TokenNode& valueNode = variableName.nodes.begin().operator*();
         if(variableName.name == name){
             return valueNode;
         }
